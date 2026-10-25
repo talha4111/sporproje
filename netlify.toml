@@ -1,0 +1,24 @@
+[build]
+  publish = "dist"
+  command = "npm run build"
+
+# Open Food Facts arama proxy kuralı (CORS engellerini aşmak için)
+[[redirects]]
+  from = "/api/off-search"
+  to = "https://search.openfoodfacts.org/search"
+  status = 200
+  force = true
+  headers = { User-Agent = "MakroTakip - WebApp - Version 1.0" }
+
+[[redirects]]
+  from = "/api/off-product/*"
+  to = "https://world.openfoodfacts.org/api/v2/product/:splat"
+  status = 200
+  force = true
+  headers = { User-Agent = "MakroTakip - WebApp - Version 1.0" }
+
+# SPA yönlendirmesi (Sayfa yenilendiğinde 404 vermemesi için)
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200

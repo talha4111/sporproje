@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Makro Takip</string>
+    <string name="title_activity_main">Makro Takip</string>
+    <string name="package_name">com.sporproje.makrotakip</string>
+    <string name="custom_url_scheme">com.sporproje.makrotakip</string>
+</resources>

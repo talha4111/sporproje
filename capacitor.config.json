@@ -1,0 +1,13 @@
+{
+  "appId": "com.sporproje.makrotakip",
+  "appName": "Makro Takip",
+  "webDir": "dist",
+  "server": {
+    "androidScheme": "https"
+  },
+  "plugins": {
+    "CapacitorHttp": {
+      "enabled": true
+    }
+  }
+}

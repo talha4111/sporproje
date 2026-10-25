@@ -1,0 +1,70 @@
+@import 'tailwindcss';
+
+@theme {
+  --font-sans: 'Inter', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+
+  --animate-fade-in: fade-in 0.2s ease-out;
+  --animate-slide-up: slide-up 0.25s ease-out;
+
+  @keyframes fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  @keyframes slide-up {
+    from { opacity: 0; transform: translateY(16px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+}
+
+@layer base {
+  :root {
+    color-scheme: dark;
+  }
+  html,
+  body {
+    @apply bg-slate-950 text-slate-200 antialiased;
+  }
+  /* Sayı girişlerindeki ok tuşlarını gizle */
+  input[type='number']::-webkit-inner-spin-button,
+  input[type='number']::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  input[type='number'] {
+    -moz-appearance: textfield;
+  }
+}
+
+/* Tailwind v4: özel sınıflar @utility ile tanımlanır (böylece @apply ve varyantlarla kullanılabilir). */
+@utility card {
+  @apply rounded-2xl border border-slate-800 bg-slate-900;
+}
+@utility input {
+  @apply w-full rounded-xl border border-slate-800 bg-slate-950 px-3 py-2 text-sm text-slate-100 outline-none transition-colors placeholder:text-slate-600 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20;
+}
+@utility btn {
+  @apply inline-flex items-center justify-center gap-2 rounded-xl px-4 py-2 text-sm font-medium transition-colors disabled:cursor-not-allowed disabled:opacity-50;
+}
+@utility btn-primary {
+  @apply btn bg-emerald-600 text-white hover:bg-emerald-500;
+}
+@utility btn-secondary {
+  @apply btn border border-slate-700 bg-slate-800 text-slate-200 hover:bg-slate-700;
+}
+@utility btn-ghost {
+  @apply btn text-slate-300 hover:bg-slate-800;
+}
+@utility btn-icon {
+  @apply inline-flex size-9 items-center justify-center rounded-lg text-slate-400 transition-colors hover:bg-slate-800 hover:text-slate-100;
+}
+@utility chip {
+  @apply inline-flex items-center gap-1 rounded-full border border-slate-700 bg-slate-800/60 px-3 py-1 text-xs text-slate-300 transition-colors hover:border-emerald-600 hover:text-emerald-300;
+}
+
+/* html5-qrcode'un enjekte ettiği video öğesi */
+.scanner-region video {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover;
+  border-radius: 0.75rem;
+}
